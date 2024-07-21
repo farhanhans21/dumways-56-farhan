@@ -1,0 +1,396 @@
+body {
+    margin: 0;
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    background-color: #e2e6ea;
+}
+
+/* navbar */
+nav {
+    display: flex;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100px;
+    background-color: rgb(241, 217, 217);
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.kiri {
+    flex-direction: row;
+    display: inline-flex;
+    align-items: center;
+    width: 50%;
+}
+
+.kanan {
+    display: flex;
+    width: 30%;
+    margin-left: 20%;
+    align-items: center;
+}
+
+.kiri a img {
+    padding: 30px;
+    height: 60px;
+
+}
+
+.kiri a img:hover {
+    width: 100px;
+    height: 100px;
+    transition-duration: 0.2s;
+}
+
+.breadcumnav ul li {
+    list-style: none;
+    display: inline-block;
+    align-items: center;
+}
+
+.breadcumnav ul li a {
+    text-decoration: none;
+    font-weight: 300;
+    padding: 30px;
+    color: black;
+}
+
+.a1 a {
+    align-items: center;
+    text-decoration: none;
+    max-width: 100px;
+}
+
+.button1 {
+    background-color: rgb(235, 112, 67);
+    border: none;
+    /* display: flex; */
+    margin-bottom: 23px;
+    width: 125px;
+    height: 40px;
+    max-width: 250px;
+    border-radius: 25px;
+    color: white;
+    /* flex-direction: row; */
+    font-size: 15px;
+    font-weight: 700;
+    transition-duration: 0.2s;
+}
+
+/* end navbar */
+/* start index */
+.card1 {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    flex-grow: 0;
+    max-height: 100%;
+    max-width: 100%;
+    width: 75%;
+    height: 50%;
+    background-color: #f2f2f2;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: auto;
+    margin-bottom: 20%;
+}
+
+.card1-judul {
+    display: flex;
+    justify-content: center;
+}
+
+.card1-p {
+    margin: auto;
+    text-align: justify;
+    padding: 0px 20px 0px 20px;
+}
+
+.tombol-index {
+    display: flex;
+    flex-direction: row;
+    padding-top: 70px;
+    max-width: 100%;
+    justify-content: space-around;
+}
+
+.tombol-index a {
+    text-decoration: none;
+    color: black;
+    padding: 20px;
+    display: flex;
+    align-content: center;
+}
+
+.tombol-index a img {
+    max-width: 20px;
+}
+
+.tombol-index a>button {
+    background-color: #555555;
+    display: flex;
+    margin-left: 30%;
+    flex-direction: column;
+    font-size: 10px;
+    padding: 10px 20px;
+    max-width: 100px;
+    border-radius: 25px;
+    color: white;
+    transition-duration: 0.2s;
+}
+
+.right {
+    margin: 20px 0px 20px 20;
+}
+
+.a {
+    text-decoration: none;
+}
+
+.a1 {
+    text-decoration: none;
+    color: black;
+    margin-top: 30px;
+    margin-left: 30%;
+    padding: 10px;
+    width: 40px;
+    display: flex;
+    max-width: 40px;
+}
+
+.a1 img {
+    margin-left: 6px;
+}
+
+.container2 {
+    margin-top: 25px;
+    display: flex;
+}
+
+.sosialContainer {
+    width: 100%;
+    padding-left: 20px;
+}
+
+.sosialIcon {
+    display: flex;
+    padding-top: 50px;
+    justify-content: center;
+}
+
+.sosialIcon a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: rgb(58, 54, 54);
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.sosialIcon a i {
+    font-size: 2em;
+    color: white;
+    opacity: 0.9;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    flex-grow: 2;
+    max-width: 100%;
+    background-color: #fff;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 20px 20px 0px;
+}
+
+.card-img {
+    position: relative;
+    height: auto;
+    width: auto;
+}
+
+.card-body {
+    padding: 0px 20px 50px 0px;
+}
+
+.card-body h2 {
+    padding-left: 20px;
+}
+
+.card-body p {
+    padding-left: 20px;
+}
+
+/*  end index*/
+
+/* buat project */
+.cardProject {
+    display: flex;
+    margin: auto;
+    padding: 18px;
+    flex-shrink: 0;
+    flex-grow: 2;
+    flex-direction: column;
+    max-width: 50%;
+    background-color: #fff;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.cardProject form h1 {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+}
+
+.cardProject form .detail {
+    display: flexbox;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.cardProject .detail .btnSubmit {
+    border: none;
+    padding-inline: 15px;
+    padding-block: 8px;
+    border-radius: 5px;
+    margin-top: 0px;
+    background-color: #191e2a;
+    color: #fff;
+    font-weight: bold;
+}
+
+.cardProject .detail .formDate {
+    display: flex;
+    gap: 20px;
+}
+
+.cardProject .detail .inputBox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.cardProject .detail .inputBox #start {
+    width: 300px;
+}
+
+.cardProject .detail .inputBox #end {
+    width: 275px;
+}
+
+.cardProject .detail .inputBox>input {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.cardProject .detail .inputBox>textarea {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.cardProject .detail .formCheck {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cardProject .detail .formCheck .inputCheck {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.cardProject .detail .formCheck .inputCheck>label {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.cardProject .detail .inputBox>input {
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 6px;
+}
+
+.project-container {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: #fff;
+    margin-top: 25px;
+}
+
+.project-container > .title {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.projects {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.project-card {
+    padding: 20px;
+    border-radius: 5px;
+    margin: 10px;
+    width: 250px;
+    height: auto;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.project-card > img {
+    width: 250px;
+    border-radius: 5px;
+}
+
+.project-card .project-title h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.project-card .project-title p {
+    margin-top: 5px;
+    color: #9b9797;
+}
+
+.project-card .project-description p {
+    text-align: justify;
+    font-size: 14px;
+    text-wrap: wrap;
+    line-height: 20px;
+}
+
+.project-card .project-tech img{
+    margin-right: 10px;
+    margin-block: 20px;
+}
+
+.project-card .project-action {
+    margin-top: 10px;
+}
+
+.project-card .project-action button {
+    width: 120px;
+    padding: 8px 10px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    background-color: #191e2a;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+/* end project */
