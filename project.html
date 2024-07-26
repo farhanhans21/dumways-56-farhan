@@ -9,34 +9,37 @@
 
   <body>
     <nav class="nav">
-      <div class="kiri">
-        <a href="index.html">
-          <img src="../asset/photo/dumbwayslogo.png" alt="" />
-        </a>
-        <div class="breadcumnav">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="project.html">My Project</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="kanan">
-        <div class="a1">
-          <a href="#">
-            <button class="button1">Contact Me</button>
+        <div class="kiri">
+  
+          <a href="index.html">
+            <img src="../asset/photo/dumbwayslogo.png" alt="" />
           </a>
+  
+          <div class="breadcumnav">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="project.html">My Project</a></li>
+            </ul>
+          </div>
+  
         </div>
-        <div class="nav-phone">
-          <a href="javascript:void(0)" class="icon" onclick="onClick()">
-            <i class="fa-solid fa-bars"></i
-          ></a>
-          <div class="burger-content" id="burger">
-            <a href="index.html">Home</a>
-            <a href="project.html">My Project</a>
+        <div class="kanan">
+          <div class="a1">
+            <a href="https://wa.me/6285218494144">
+              <button class="button1">Contact Me</button>
+            </a>
+          </div>
+          <div class="nav-phone">
+            <a href="javascript:void(0)" class="icon" onclick="onClick()">
+              <i class="fa-solid fa-bars"></i
+            ></a>
+            <div class="burger-content" id="burger">
+              <a href="index.html">Home</a>
+              <a href="project.html">My Project</a>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
     <div class="cardProject">
       <form id="projectForm">
@@ -106,7 +109,20 @@
         <!-- Project items rendered by javascript. -->
       </div>
     </div>
-
+    <script>
+        function onClick() {
+          let x = document.getElementById("burger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+      </script>
+      <script
+        src="https://kit.fontawesome.com/e595e5b227.js"
+        crossorigin="anonymous"
+      ></script>
     <script src="../javascript/index.js"></script>
   </body>
 </html>
