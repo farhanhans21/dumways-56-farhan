@@ -4,27 +4,25 @@ body {
   font-family: "Inter", sans-serif;
   background-color: #e2e6ea;
 }
-iframe {
-  width: 100%;
-  height: 100px;
-}
 
 /* navbar */
-nav {
-  display: flex;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  background-color: rgb(241, 217, 217);
-  color: white;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-.nav-phone a > i {
+
+/* .nav-phone a > i {
   text-decoration: none;
   width: 50%;
   display: none;
+} */
+form a {
+  text-decoration: none;
+}
+form a > #contact-btn {
+  background-color: orangered;
+}
+.container-fluid {
+  display: flex;
+  justify-content: space-around !important;
+  max-width: 100% !important;
+  width: 100% !important;
 }
 
 /* for smartphone */
@@ -136,7 +134,7 @@ nav {
   }
 }
 /* end smartphone */
-.kiri {
+/* .kiri {
   flex-direction: row;
   display: inline-flex;
   align-items: center;
@@ -144,10 +142,10 @@ nav {
 }
 
 .kanan {
-  /* display: flex; */
+  display: flex;
   width: 30%;
-  /* margin-left: 20%;
-    align-items: center; */
+  margin-left: 20%;
+    align-items: center;
 }
 
 .kiri a img {
@@ -184,21 +182,21 @@ nav {
   background-color: rgb(235, 112, 67);
   border: none;
   /* display: flex; */
-  margin-bottom: 23px;
+/* margin-bottom: 23px;
   width: 125px;
   height: 40px;
   max-width: 250px;
-  border-radius: 25px;
-  color: white;
-  /* flex-direction: row; */
-  font-size: 15px;
+  border-radius: 25px; */
+/* color: white; */
+/* flex-direction: row; */
+/* font-size: 15px;
   font-weight: 700;
-  transition-duration: 0.2s;
-}
+  transition-duration: 0.2s; */
+/* }  */
 
 /* end navbar */
 /* start index */
-.card1 {
+/* .card1 {
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
@@ -292,11 +290,31 @@ nav {
 .container2 {
   margin-top: 25px;
   display: flex;
+} */
+.text-nama {
+  padding: 0px 0px 20px 20px;
+}
+.text-nama ul li {
+  list-style: none;
+}
+.card-title {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.card-text {
+  display: flex;
+  justify-content: justify;
 }
 
+#card-button a > button {
+  color: antiquewhite;
+  background-color: rgb(241, 109, 61) !important;
+}
 .sosialContainer {
   width: 100%;
-  padding-left: 20px;
+  max-width: 100%;
+  margin-top: 50px;
 }
 
 .sosialIcon {
@@ -319,7 +337,7 @@ nav {
   opacity: 0.9;
 }
 
-.card {
+/* .card {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -330,7 +348,7 @@ nav {
   border-radius: 10px;
   overflow: hidden;
   margin: 20px 20px 20px 0px;
-}
+} */
 @media screen and (max-width: 600px) {
   .card1 {
     display: flex;
@@ -353,7 +371,7 @@ nav {
   }
 }
 
-.card-img {
+/* .card-img {
   position: relative;
   height: auto;
   width: auto;
@@ -369,12 +387,12 @@ nav {
 
 .card-body p {
   padding-left: 20px;
-}
+} */
 
 /*  end index*/
 
 /* buat project */
-.cardProject {
+/* .cardProject {
   display: flex;
   margin: auto;
   padding: 18px;
@@ -534,12 +552,213 @@ nav {
   background-color: #191e2a;
   border-radius: 5px;
   margin-right: 5px;
+} */
+
+#con-project form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+  border-radius: 25px;
+  margin: auto;
+  margin-top: 40px !important;
+}
+form #card-body h1 {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+#save {
+  background-color: rgb(241, 109, 61) !important;
+}
+#detail .formCheck {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
+#detail .inputBox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+#detail .inputBox #start {
+  width: 300px;
+}
+
+#detail .inputBox #end {
+  width: 275px;
+}
+
+#detail .inputBox > input {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+#detail .inputBox > textarea {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+#detail .formCheck {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#detail .formCheck .inputCheck {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+#detail .formCheck .inputCheck > label {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+#detail .inputBox > input {
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 6px;
+}
+#detail .inputBox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+#detail .inputBox #start {
+  width: 300px;
+}
+
+#detail .inputBox #end {
+  width: 275px;
+}
+
+#detail .inputBox > input {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+#detail .inputBox > textarea {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+#detail .formCheck {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#detail .formCheck .inputCheck {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+#detail .formCheck .inputCheck > label {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+#detail .inputBox > input {
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 6px;
+}
+
+#btn-save {
+  margin-top: 10px;
+}
+
+#btn-save > button {
+  width: 120px;
+  padding: 8px 10px;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  background-color: #191e2a;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.project-container > .title {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.projects {
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.project-card {
+  padding: 20px;
+  border-radius: 5px;
+  margin: 10px;
+  width: 250px;
+  height: auto;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.project-card > img {
+  width: 250px;
+  border-radius: 5px;
+}
+
+.project-card .project-title h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.project-card .project-title p {
+  margin-top: 5px;
+  color: #9b9797;
+}
+
+.project-card .project-description p {
+  text-align: justify;
+  font-size: 14px;
+  text-wrap: wrap;
+  line-height: 20px;
+}
+
+.project-card .project-tech img {
+  margin-right: 10px;
+  margin-block: 20px;
+}
+
+.project-card .project-action {
+  margin-top: 10px;
+}
+
+.project-card .project-action button {
+  width: 120px;
+  padding: 8px 10px;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  background-color: #191e2a;
+  border-radius: 5px;
+  margin-right: 5px;
+}
 /* end project */
 
 /* start testi*/
-.nomor{
+.nomor {
   color: #191e2a;
 }
 .pagination {
@@ -583,7 +802,7 @@ nav {
   border-radius: 25px;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
   width: 20%;
-  
+
   margin: 0;
   display: block;
   justify-content: center;

@@ -7,87 +7,44 @@
     <title>Tampil</title>
   </head>
   <body>
-    <nav class="nav">
-      <div class="kiri">
-        <a href="index.html">
-          <img src="../asset/photo/dumbwayslogo.png" alt="" />
-        </a>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light"
+      id="nav-placeholder"
+    ></nav>
 
-        <div class="breadcumnav">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="project.html">My Project</a></li>
-            <li><a href="testimonial.html">Testimoni</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="kanan">
-        <div class="a1">
-          <a href="https://wa.me/6285218494144">
-            <button class="button1">Contact Me</button>
-          </a>
-        </div>
-        <div class="nav-phone">
-          <a href="javascript:void(0)" class="icon" onclick="onClick()">
-            <i class="fa-solid fa-bars"></i
-          ></a>
-          <div class="burger-content" id="burger">
-            <a href="index.html">Home</a>
-            <a href="project.html">My Project</a>
-            <a href="testimonial.html">Tampilan Project</a>
-          </div>
-        </div>
-      </div>
-    </nav>   
-    <div class="nomor">
-      <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#">All</a>
-        <a href="#" class="active">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">&raquo;</a>
-      </div>
-    </div>
+    <nav aria-label="">
+      <ul class="pagination pagination-lg">
+        <li class="page-item active" aria-current="page">
+          <span class="page-link">1</span>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+      </ul>
+    </nav>
     <section class="container-testi" id="testimonial">
-      <!-- <div class="card-testi">
-        <div class="img-testi">
-          <img src="../asset/photo/test1.jpg" alt="" />
-        </div>
-        <div class="nama-testi">
-          <h2>Ahmad Hamzah</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel
-            ex at turpis condimentum condimentum. Nulla facilisi. Sed vel massa
-            vel velit consectetur.
-          </p>
-          <i class="fa-solid fa-star"></i>
-        </div>
-      </div>
-      <div class="card-testi">
-        <div class="img-testi">
-          <img src="../asset/photo/test1.jpg" alt="" id="img"/>
-        </div>
-        <div class="nama-testi">
-          <h2 id="name">Ahmad Hamzah</h2>
-          <p id="desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel
-            ex at turpis condimentum condimentum. Nulla facilisi. Sed vel massa
-            vel velit consectetur.
-          </p>
-          <i class="fa-solid fa-star" id="star"></i>
-        </div>
-      </div> -->
+      
     </section>
     <script
       src="https://kit.fontawesome.com/e595e5b227.js"
       crossorigin="anonymous"
     ></script>
+    <script>
+            async function loadNav() {
+        try {
+          const response = await fetch("navbar.html");
+          const html = await response.text();
+          console.log(html);
+          document.getElementById("nav-placeholder").innerHTML = html;
+        } catch (error) {
+          console.error("Error loading navbar:", error);
+        }
+      }
+      loadNav();
+    </script>
     <!-- <script src="../javascript/testimoniOop.js"></script> -->
     <script src="../javascript/testiAsycDanPromise.js"></script>
     <!-- <script src="../javascript/testiHof.js"></script> -->
-    
   </body>
 </html>

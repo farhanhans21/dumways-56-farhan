@@ -8,98 +8,111 @@
   </head>
 
   <body>
-    <nav class="nav">
-        <div class="kiri">
-  
-          <a href="index.html">
-            <img src="../asset/photo/dumbwayslogo.png" alt="" />
-          </a>
-  
-          <div class="breadcumnav">
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="project.html">My Project</a></li>
-              <li><a href="testimonial.html">Testimoni</a></li>
-            </ul>
-          </div>
-  
-        </div>
-        <div class="kanan">
-          <div class="a1">
-            <a href="https://wa.me/6285218494144">
-              <button class="button1">Contact Me</button>
-            </a>
-          </div>
-          <div class="nav-phone">
-            <a href="javascript:void(0)" class="icon" onclick="onClick()">
-              <i class="fa-solid fa-bars"></i
-            ></a>
-            <div class="burger-content" id="burger">
-              <a href="index.html">Home</a>
-              <a href="project.html">My Project</a>
-              <a href="testimonial.html">Testimoni</a>
-            </div>
-          </div>
-        </div>
-      </nav>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light"
+      id="nav-placeholder"
+    ></nav>
 
-    <div class="cardProject">
-      <form id="projectForm">
-        <h1>ADD MY PROJECT</h1>
-        <div class="detail">
-          <div class="inputBox">
-            <label for="nama">Project Name : </label>
-            <input type="text" id="Project" name="name" />
-          </div>
-
-          <div class="formDate">
+    <div class="container-lg" id="con-project">
+      <form class="card" id="projectForm">
+        <div class="card-body" id="card-body">
+          <h1>ADD MY PROJECT</h1>
+          <div id="detail" class="form-floating mb-3">
             <div class="inputBox">
-              <label for="start">Start Date</label>
-              <input type="date" id="start" name="start_date" />
+              <label for="nama">Project Name : </label>
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Please enter your project name!"
+                id="Project"
+                name="name"
+                aria-label="default input example"
+              />
+            </div>
+
+            <div class="formDate">
+              <div class="inputBox">
+                <label for="start">Start Date</label>
+                <input
+                  class="form-control"
+                  type="date"
+                  placeholder="Default input"
+                  aria-label="default input example"
+                  id="start"
+                  name="start_date"
+                />
+              </div>
+
+              <div class="inputBox">
+                <label for="end">End Date</label>
+                <input
+                class="form-control"
+                type="date"
+                placeholder="Default input"
+                aria-label="default input example"
+                id="end" name="end_date"
+              />
+              </div>
             </div>
 
             <div class="inputBox">
-              <label for="end">End Date</label>
-              <input type="date" id="end" name="end_date" />
+              <label for="nodejs">Technologies</label>
+              <div class="formCheck">
+                <div class="inputCheck">
+                  <input type="checkbox" name="tech" id="nodejs" value="node" />
+                  <label for="nodejs">Node JS</label>
+
+                  <input
+                    type="checkbox"
+                    name="tech"
+                    id="reactjs"
+                    value="react"
+                  />
+                  <label for="reactjs">React JS</label>
+                </div>
+                <div class="inputCheck">
+                  <input type="checkbox" name="tech" id="nextjs" value="next" />
+                  <label for="nextjs">Next JS</label>
+
+                  <input
+                    type="checkbox"
+                    name="tech"
+                    id="typescript"
+                    value="ts"
+                  />
+                  <label for="typescript">TypeScript</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="inputBox">
+              <label for="image">Image</label>
+              <input
+                type="file"
+                id="imageUpload"
+                name="image"
+                accept="image/*"
+              />
+            </div>
+
+            <div class="inputBox">
+              <label for="deskripsi">Description</label>
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="deskripsi" style="height: 200px"></textarea>
+                <label for="floatingTextarea2">Comments</label>
+              </div>
+              <!-- <textarea
+                type="text"
+                id="deskripsi"
+                name="description"
+                rows="6"
+              ></textarea> -->
+            </div>
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start"id="btn-save">
+              <button class="btn btn-light" id="save" type="button">Button</button>
             </div>
           </div>
-
-          <div class="inputBox">
-            <label for="nodejs">Technologies</label>
-            <div class="formCheck">
-              <div class="inputCheck">
-                <input type="checkbox" name="tech" id="nodejs" value="node" />
-                <label for="nodejs">Node JS</label>
-
-                <input type="checkbox" name="tech" id="reactjs" value="react" />
-                <label for="reactjs">React JS</label>
-              </div>
-              <div class="inputCheck">
-                <input type="checkbox" name="tech" id="nextjs" value="next" />
-                <label for="nextjs">Next JS</label>
-
-                <input type="checkbox" name="tech" id="typescript" value="ts" />
-                <label for="typescript">TypeScript</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="inputBox">
-            <label for="image">Image</label>
-            <input type="file" id="imageUpload" name="image" accept="image/*" />
-          </div>
-
-          <div class="inputBox">
-            <label for="deskripsi">Description</label>
-            <textarea
-              type="text"
-              id="deskripsi"
-              name="description"
-              rows="6"
-            ></textarea>
-          </div>
-
-          <button type="submit" class="btnSubmit">Save</button>
         </div>
       </form>
     </div>
@@ -112,19 +125,32 @@
       </div>
     </div>
     <script>
-        function onClick() {
-          let x = document.getElementById("burger");
-          if (x.style.display === "block") {
-            x.style.display = "none";
-          } else {
-            x.style.display = "block";
-          }
+      function onClick() {
+        let x = document.getElementById("burger");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
         }
-      </script>
-      <script
-        src="https://kit.fontawesome.com/e595e5b227.js"
-        crossorigin="anonymous"
-      ></script>
+      }
+    </script>
+    <script>
+      const loadNav = async () => {
+        try {
+          const response = await fetch("navbar.html");
+          const html = await response.text();
+          console.log(html);
+          document.getElementById("nav-placeholder").innerHTML = html;
+        } catch (error) {
+          console.error("Error loading navbar:", error);
+        }
+      };
+      loadNav();
+    </script>
+    <script
+      src="https://kit.fontawesome.com/e595e5b227.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- <script src="../javascript/index.js"></script> -->
     <script src="../javascript/indxOoP.js"></script>
   </body>
