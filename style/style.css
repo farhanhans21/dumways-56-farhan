@@ -15,8 +15,8 @@ body {
 form a {
   text-decoration: none;
 }
-form a > #contact-btn {
-  background-color: orangered;
+form a {
+  background-color: orangered !important;
 }
 .container-fluid {
   display: flex;
@@ -802,7 +802,7 @@ form #card-body h1 {
   border-radius: 25px;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
   width: 20%;
-
+  
   margin: 0;
   display: block;
   justify-content: center;
@@ -823,4 +823,8 @@ form #card-body h1 {
 .container-testi .card-testi .nama-testi > h2 {
   /* float:left; */
   padding: 20px;
+}
+.container-testi .card-testi .nama-testi p>img{
+  max-width: 10% !important;
+  width: 10px;
 }

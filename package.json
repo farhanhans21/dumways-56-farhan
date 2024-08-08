@@ -1,0 +1,25 @@
+{
+  "name": "farhan-dumways56",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.0.2",
+    "express": "^4.19.2",
+    "hbs": "^4.2.0",
+    "pg": "^8.12.0",
+    "pg-hstore": "^2.3.4",
+    "pg-promise": "^11.9.1",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
