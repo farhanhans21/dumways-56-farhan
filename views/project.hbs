@@ -17,7 +17,10 @@
       class="navbar navbar-expand-lg navbar-light bg-light"
       id="nav-placeholder"
     >
-      <div class="container-fluid" style="max-width: 100% !important;width: 90vmax !important;">
+      <div
+        class="container-fluid"
+        style="max-width: 100% !important;width: 90vmax !important;"
+      >
         <nav class="navbar navbar-light bg-light">
           <div class="container">
             <a class="navbar-brand" href="/">
@@ -44,9 +47,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/"
-                >Personal</a
-              >
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="/"
+              >Personal</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="project">Project</a>
@@ -56,21 +61,27 @@
             </li>
           </ul>
           <form class="d-flex">
-              <a
-                href="https://wa.me/6285218494144"
-                class="btn btn-outline-light"
-                id="contact-btn"
-                style="text-decoration: none;"
-                type="submit"
-              >
-                Contact
+            <a
+              href="https://wa.me/6285218494144"
+              class="btn btn-outline-light"
+              id="contact-btn"
+              style="text-decoration: none;"
+              type="submit"
+            >
+              Contact
             </a>
-            </form>
+          </form>
         </div>
       </div>
     </nav>
     <div class="container-lg" id="con-project">
-      <form class="card" id="projectForm" action="/project" method="post">
+      <form
+        class="card"
+        id="projectForm"
+        action="/project"
+        method="post"
+        enctype="multipart/form-data"
+      >
         <div class="card-body" id="card-body">
           <h1>ADD MY PROJECT</h1>
           <div id="detail" class="form-floating mb-3">
@@ -188,32 +199,39 @@
         <!-- Project items rendered by javascript. -->
         {{#each data}}
           <div class="card" style="width: 18rem; height:100%">
-            <img src={{this.image}} class="card-img-top" alt="..." />
+            <img
+              src={{this.image.path}}
+              style="max-width: 50%; height:auto; widht: 50px;"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title">{{this.name}}</h5>
+              <p>{{this.image.path}}</p>
               <p class="card-text">{{this.start_date}}</p>
               <p class="card-text">{{this.end_date}}</p>
               <p class="card-text">{{this.createAt}}</p>
               <p class="card-text">{{this.tech}}</p>
               <p class="card-text">{{this.textarea}}</p>
-              <a href="/project-get/{{this.id}}" class="btn btn-success">Edit</a>
-              <a href="/project-delete/{{this.id}}" class="btn btn-danger">Delete</a>
+              <a
+                href="/project-get/{{this.id}}"
+                class="btn btn-success"
+              >Edit</a>
+              <a
+                href="/project-delete/{{this.id}}"
+                class="btn btn-danger"
+              >Delete</a>
             </div>
           </div>
         {{/each}}
       </div>
     </div>
     <script>
-      function onClick() {
-        let x = document.getElementById("burger");
-        if (x.style.display === "block") {
-          x.style.display = "none";
-        } else {
-          x.style.display = "block";
-        }
-      }
+      function onClick() { let x = document.getElementById("burger"); if
+      (x.style.display === "block") { x.style.display = "none"; } else {
+      x.style.display = "block"; } }
     </script>
-      <script
+    <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
       integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
       crossorigin="anonymous"
