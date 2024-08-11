@@ -828,3 +828,13 @@ form #card-body h1 {
   max-width: 10% !important;
   width: 10px;
 }
+/* #card-login{
+  display: flex;
+  margin: 0;
+  max-width: 100%;
+  width: 40rem !important;
+}*/
+#card-login .card >h1{
+  display: flex;
+  justify-content: center;
+} 

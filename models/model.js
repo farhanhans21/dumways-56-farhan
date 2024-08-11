@@ -57,5 +57,40 @@ model.project = db.define(
     freezeTableName: true,
   }
 );
-
+model.userProject = db.define("userproject",{
+  id_user: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  firstname:{
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  lastname:{
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  born: {
+    type: DataTypes.DATE,
+    allowNull: true,
+  },
+  email:{
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  hp:{
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  password:{
+    type: DataTypes.STRING,
+    allowNull: true,
+  }
+},
+  {
+    schema: "personal",
+    timestamps: false,
+    freezeTableName: true,
+  });
 module.exports = model;

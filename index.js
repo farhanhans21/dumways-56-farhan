@@ -1,23 +1,40 @@
-const express = require("express");
+
+const express = require('express');
 const app = express();
 const port = 3000;
+const { QueryTypes } = require("sequelize");
 const bodyParser = require("body-parser");
 const path = require("path");
+const hash = require("./javascript/bcryptFile");
 
 const model = require("./models/model");
 const db = require("./src/db");
 const { SELECT } = require("sequelize/lib/query-types");
 const multer = require("multer");
-const { log } = require("console");
+const session = require('express-session');
+const flash = require('express-flash');
+
 
 app.set("view engine", "hbs");
 app.set("views", "views");
+app.set("trush proxy", 1);
 
 app.use("/asset", express.static("asset"));
 app.use("/style", express.static("style"));
 app.use("/views", express.static("views"));
 app.use("/javascript", express.static("javascript"));
 app.use(express.urlencoded({ extended: true }));
+
+app.use(
+  session({
+    secret: "farhan",
+    cookie: { maxAge: 3600000, httpOnly: true, secure: false },
+    saveUninitialized: true,
+    resave: false,
+    store: new session.MemoryStore(),
+  })
+);
+app.use(flash());
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
@@ -41,6 +58,10 @@ app.get("/project-get/:id", renderProjectEdit);
 app.post("/project-update/:id", upload.single("image"), updateProject);
 app.get("/project-delete/:id", deleteProject);
 app.get("/testimonial", renderTestimonial);
+app.get("/login", renderLogin);
+app.post("/login", postLogin);
+app.get("/register", renderRegister);
+app.post("/register", postRegister);
 
 async function renderProject(req, res) {
   try {
@@ -78,9 +99,8 @@ async function postProject(req, res) {
       textarea: req.body.textarea,
       image: JSON.stringify(req.file),
     };
-    // console.log(req.file);
 
-    await model.project.create(newProject);
+    const ok = await model.project.create(newProject);
 
     res.redirect("/project");
   } catch (error) {
@@ -106,23 +126,26 @@ async function updateProject(req, res) {
   try {
     const idProject = parseInt(req.params.id);
 
-    const newProject = {
-      id: idProject,
+    let tech = req.body.tech;
+    if (typeof tech === typeof "") {
+      tech = [req.body.tech];
+    }
+    const updateProject = {
       name: req.body.name,
       start_date: req.body.start_date,
       end_date: req.body.end_date,
-      tech: req.body.tech,
+      tech: tech,
       is_node: req.body.tech.includes("node") ? true : false,
       is_react: req.body.tech.includes("react") ? true : false,
       is_next: req.body.tech.includes("next") ? true : false,
       is_ts: req.body.tech.includes("ts") ? true : false,
       textarea: req.body.textarea,
-      image: req.file.image,
+      image: JSON.stringify(req.file),
     };
 
-    await model.project.update(newProject, { where: { id: idProject } });
-
-    renderProject(req, res);
+  
+    await model.project.update(updateProject, { where: { id: idProject } })
+    res.redirect('/project')
   } catch (error) {
     console.error(error);
 
@@ -143,7 +166,78 @@ async function deleteProject(req, res) {
   }
 }
 
-function renderTestimonial(req, res) {
+async function renderLogin(req, res) {
+  const isLogin = req.session.isLogin;
+  if (isLogin) {
+    req.flash("error", "anda harus login terlebih dahulu");
+    res.redirect("/blog");
+    return;
+  }
+
+  res.render("login");
+}
+async function renderRegister(req, res) {
+  console.log(req.session);
+  // const isLogin = req.session.isLogin;
+  // if (isLogin) {
+  //   req.flash("error", "anda harus login terlebih dahulu");
+  //   res.redirect("/");
+  //   return;
+  // }
+
+  res.render("register", {
+  });
+}
+async function postRegister(req, res) {
+  try {
+    console.log(req.body);
+
+    newObj = {
+      firstname: req.body.firstName,
+      lastname: req.body.lastName,
+      born: req.body.date,
+      hp: req.body.phoneNumber,
+      password: await hash.hashPassword(req.body.password),
+      email: req.body.email,
+    };
+    await model.userProject.create(newObj);
+    req.flash("success", "running registration");
+    res.redirect("/login");
+  } catch (error) {
+    console.log(error);
+  }
+}
+async function postLogin(req, res) {
+  try {
+    const query = `
+      SELECT * FROM personal.userproject
+      WHERE
+      email = '${req.body.email}'
+      AND
+      password = '${req.body.password}'
+      `;
+    const existUser = await db.query(query, {
+      type: QueryTypes.SELECT,
+    });
+
+    if (existUser.length == 0) {
+      req.flash("error", "login gagal");
+      res.redirect("/login");
+      return;
+    }
+
+    req.session.user = existUser[0];
+    console.log(req.session.user)
+    req.session.isLogin = true;
+
+    req.flash("succes", "login sukses");
+    res.redirect("/");
+  } catch (error) {
+    console.log(error);
+    res.redirect("/login");
+  }
+}
+async function renderTestimonial(req, res) {
   res.render("testimonial", {});
 }
 
@@ -161,4 +255,4 @@ app.listen(port, async () => {
   }
 });
 
-// conn db
+
