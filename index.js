@@ -1,19 +1,19 @@
-
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = 3000;
-const { QueryTypes } = require("sequelize");
+const { QueryTypes, where } = require("sequelize");
 const bodyParser = require("body-parser");
 const path = require("path");
 const hash = require("./javascript/bcryptFile");
+
+const { hashPassword, comparePassword } = require("./javascript/bcryptFile");
 
 const model = require("./models/model");
 const db = require("./src/db");
 const { SELECT } = require("sequelize/lib/query-types");
 const multer = require("multer");
-const session = require('express-session');
-const flash = require('express-flash');
-
+const session = require("express-session");
+const flash = require("express-flash");
 
 app.set("view engine", "hbs");
 app.set("views", "views");
@@ -143,9 +143,8 @@ async function updateProject(req, res) {
       image: JSON.stringify(req.file),
     };
 
-  
-    await model.project.update(updateProject, { where: { id: idProject } })
-    res.redirect('/project')
+    await model.project.update(updateProject, { where: { id: idProject } });
+    res.redirect("/project");
   } catch (error) {
     console.error(error);
 
@@ -157,10 +156,8 @@ async function deleteProject(req, res) {
     const id = req.params.id;
 
     await model.project.destroy({ where: { id: id } });
-    // const index = projects.findIndex((e) => e.id == id);
 
     res.redirect("/project");
-    // projects.splice(index, 1);
   } catch (error) {
     console.error(error);
   }
@@ -170,7 +167,7 @@ async function renderLogin(req, res) {
   const isLogin = req.session.isLogin;
   if (isLogin) {
     req.flash("error", "anda harus login terlebih dahulu");
-    res.redirect("/blog");
+    res.redirect("/");
     return;
   }
 
@@ -178,15 +175,8 @@ async function renderLogin(req, res) {
 }
 async function renderRegister(req, res) {
   console.log(req.session);
-  // const isLogin = req.session.isLogin;
-  // if (isLogin) {
-  //   req.flash("error", "anda harus login terlebih dahulu");
-  //   res.redirect("/");
-  //   return;
-  // }
 
-  res.render("register", {
-  });
+  res.render("register", {});
 }
 async function postRegister(req, res) {
   try {
@@ -201,37 +191,36 @@ async function postRegister(req, res) {
       email: req.body.email,
     };
     await model.userProject.create(newObj);
-    req.flash("success", "running registration");
+    req.flash("info", "running registration");
     res.redirect("/login");
   } catch (error) {
     console.log(error);
   }
 }
+
 async function postLogin(req, res) {
   try {
-    const query = `
-      SELECT * FROM personal.userproject
-      WHERE
-      email = '${req.body.email}'
-      AND
-      password = '${req.body.password}'
-      `;
-    const existUser = await db.query(query, {
-      type: QueryTypes.SELECT,
-    });
+    const email = req.body.email;
+    const userEmail = await model.userProject.findOne({ where: { email: email } });
+    const pass = req.body.password;
+    const check = await hash.comparePassword(pass, userEmail.password);
+    const emailCheck = userEmail.email
+    
+    if ( email == emailCheck && check ) {
+      req.session.user = [0];
+      console.log(req.session.user);
+      req.session.isLogin = true;
 
-    if (existUser.length == 0) {
+      req.flash("succes", "login sukses");
+      res.redirect("/");
+    } 
+    else {
+      console.log("gagal");
       req.flash("error", "login gagal");
       res.redirect("/login");
       return;
     }
 
-    req.session.user = existUser[0];
-    console.log(req.session.user)
-    req.session.isLogin = true;
-
-    req.flash("succes", "login sukses");
-    res.redirect("/");
   } catch (error) {
     console.log(error);
     res.redirect("/login");
@@ -254,5 +243,3 @@ app.listen(port, async () => {
     console.error(error);
   }
 });
-
-
