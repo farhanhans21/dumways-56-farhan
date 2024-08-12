@@ -65,6 +65,11 @@ app.post("/register", postRegister);
 
 async function renderProject(req, res) {
   try {
+    console.log(req.session);
+    
+    const isLogin =  req.session.isLogin;
+    if(!isLogin) return res.redirect('/login')
+
     const query = `select * from personal.project`;
     const [results] = await db.query(query, { typeQuery: SELECT });
 
@@ -124,6 +129,7 @@ async function renderProjectEdit(req, res) {
 }
 async function updateProject(req, res) {
   try {
+
     const idProject = parseInt(req.params.id);
 
     let tech = req.body.tech;
